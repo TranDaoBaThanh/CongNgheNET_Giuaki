@@ -1,0 +1,150 @@
+:root {
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+  background-color: #f8f9fa;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+  background-color: #fff;
+}
+
+/* Common styles */
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+.card {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn {
+  border-radius: 0.35rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Todo list styles */
+.todo-list .list-group-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0 !important;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  transition: background-color 0.2s;
+}
+
+.todo-list .list-group-item:first-child {
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+}
+
+.todo-list .list-group-item:last-child {
+  border-bottom-left-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+}
+
+.todo-list .list-group-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.task-meta {
+  font-size: 0.85rem;
+}
+
+.btn-check-todo {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.todo-actions {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.list-group-item:hover .todo-actions {
+  opacity: 1;
+}
+
+/* Form styles */
+.form-control, .form-select {
+  padding: 0.75rem 1rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+  border-color: var(--bs-primary);
+}
+
+.input-group-text {
+  border-radius: 0.35rem 0 0 0.35rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: none;
+}
+
+.input-group .form-control {
+  border-radius: 0 0.35rem 0.35rem 0;
+}
+
+.card-header {
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .todo-actions {
+    opacity: 1;
+  }
+  
+  .list-group-item {
+    flex-wrap: wrap;
+  }
+  
+  .todo-actions {
+    margin-top: 1rem;
+    margin-left: auto;
+  }
+}
