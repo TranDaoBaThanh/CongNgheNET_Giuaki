@@ -22,7 +22,7 @@ namespace TodoApp.Controllers
         {
             // Get current user ID from claims
             var userId = GetCurrentUserId();
-            
+
             // Get all todos for the current user
             var todos = await _todoService.GetUserTodosAsync(userId);
 
@@ -86,10 +86,10 @@ namespace TodoApp.Controllers
                 var userId = GetCurrentUserId();
                 todo.UserId = userId;
                 todo.CreatedAt = DateTime.UtcNow;
-                
+
                 await _todoService.CreateTodoAsync(todo);
                 _logger.LogInformation("User {UserId} created new todo: {TodoTitle}", userId, todo.Title);
-                
+
                 return RedirectToAction(nameof(Index));
             }
             return View(todo);
@@ -100,17 +100,17 @@ namespace TodoApp.Controllers
         {
             var userId = GetCurrentUserId();
             var todo = await _todoService.GetTodoByIdAsync(id);
-            
+
             if (todo == null)
             {
                 return NotFound();
             }
-            
+
             if (todo.UserId != userId)
             {
                 return Forbid();
             }
-            
+
             return View(todo);
         }
 
@@ -124,14 +124,14 @@ namespace TodoApp.Controllers
             }
 
             var userId = GetCurrentUserId();
-            
+
             // Check if todo exists and belongs to the current user
             var existingTodo = await _todoService.GetTodoByIdAsync(id);
             if (existingTodo == null)
             {
                 return NotFound();
             }
-            
+
             if (existingTodo.UserId != userId)
             {
                 return Forbid();
@@ -141,10 +141,10 @@ namespace TodoApp.Controllers
             {
                 todo.UserId = userId;
                 todo.UpdatedAt = DateTime.UtcNow;
-                
+
                 await _todoService.UpdateTodoAsync(todo);
                 _logger.LogInformation("User {UserId} updated todo: {TodoTitle}", userId, todo.Title);
-                
+
                 return RedirectToAction(nameof(Index));
             }
             return View(todo);
@@ -156,20 +156,20 @@ namespace TodoApp.Controllers
         {
             var userId = GetCurrentUserId();
             var todo = await _todoService.GetTodoByIdAsync(id);
-            
+
             if (todo == null)
             {
                 return NotFound();
             }
-            
+
             if (todo.UserId != userId)
             {
                 return Forbid();
             }
-            
+
             await _todoService.DeleteTodoAsync(id);
             _logger.LogInformation("User {UserId} deleted todo: {TodoTitle}", userId, todo.Title);
-            
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -179,24 +179,24 @@ namespace TodoApp.Controllers
         {
             var userId = GetCurrentUserId();
             var todo = await _todoService.GetTodoByIdAsync(id);
-            
+
             if (todo == null)
             {
                 return NotFound();
             }
-            
+
             if (todo.UserId != userId)
             {
                 return Forbid();
             }
-            
+
             // Toggle completion status
             todo.IsCompleted = !todo.IsCompleted;
             todo.UpdatedAt = DateTime.UtcNow;
-            
+
             await _todoService.UpdateTodoAsync(todo);
             _logger.LogInformation("User {UserId} toggled completion status of todo: {TodoTitle}", userId, todo.Title);
-            
+
             return RedirectToAction(nameof(Index));
         }
 
