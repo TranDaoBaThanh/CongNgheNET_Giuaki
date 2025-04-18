@@ -11,7 +11,8 @@ builder.Services.AddControllersWithViews();
 
 // Add database context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Add services
 builder.Services.AddScoped<ITodoService, TodoService>();
