@@ -63,7 +63,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 ---
 
 ## ▶️ 6. Chạy ứng dụng
-1. Chọn vào nút có mũi tên màu xanh và chữ TodoApp
+1. Chọn vào nút có mũi tên màu xanh và chữ TodoApp (nếu không chạy được có thể chạy lệnh như sau : dotnet restore -> dotnet build -> dotnet run để chạy code)
 2. Trình duyệt tự động mở, có thể bắt đầu đăng nhập/đăng ký tài khoản, thêm, sửa, xoá công việc.
 
 ---
