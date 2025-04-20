@@ -15,7 +15,7 @@
 ---
 
 ## 📦 1. Chuẩn bị
-- **.NET SDK** >= 6.0
+- **.NET SDK** 8.0
 - **SQL Server** (bản Community hoặc cao hơn)
 - **Visual Studio 2022** hoặc mới hơn
 
